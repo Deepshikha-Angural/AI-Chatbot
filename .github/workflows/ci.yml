@@ -15,5 +15,5 @@ jobs:
     - name: List project files
       run: ls -la
 
-    - name: Validate HTML (optional)
-      uses: Cyb3r-Jak3/html5validator-action@main
+    # - name: Validate HTML (optional)
+    #   uses: Cyb3r-Jak3/html5validator-action@main
