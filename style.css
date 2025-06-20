@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* --chat-container-bg:rgb(45, 52, 59); */
+    --chat-container-bg:rgb(28 38 88);
+    --user-chat-area-bg: black;
+    --chat-area-text-color: rgb(241, 225, 225);
+    --ai-chat-area-bg: rgb(0, 0, 0,0.457);
+    --prompt-area-input-bg: black;
+    --prompt-area-input-color: white;
+    --button-hover-bg: none
+}
+  .darks-theme {
+    --chat-container-bg: #1e1e1e;           /* Charcoal background */
+--user-chat-area-bg: #2a2a2a;           /* Dark bubble */
+--chat-area-text-color: #e0e0e0;        /* Light grey text */
+--ai-chat-area-bg: #3a3a3a;             /* Dim grey for AI */
+--prompt-area-input-bg: #2e2e2e;        /* Input field dark */
+--prompt-area-input-color: #ffffff;     /* White text */
+--button-hover-bg: #444444;             /* Dark hover */
+--prompt-area-input-border:none;
+  }
+
+.light-theme {
+  --chat-container-bg: #eef6f9;           /* Frosty blue-white */
+  --user-chat-area-bg: #c5c6cf4a;           /* Clean white */
+  --chat-area-text-color: #3d3d3d;        /* Neutral grey text */
+  --ai-chat-area-bg: #d9ecf2;             /* Light blue-grey */
+  --prompt-area-input-bg: #ffffff;        /* White input */
+  --prompt-area-input-color: #1f1f1f;     /* Near-black text */
+  --button-hover-bg: #cde8f2;             /* Hover with icy blue */
+  --prompt-area-input-border:solid #c5c6cf4a 2px;
+  
+}
+  
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+.chat-container{
+    width: 100%;
+    height: 80%;
+    background-color: var(--chat-container-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 20px;
+    overflow: auto;
+}
+
+.user-chat-box{
+    width: 60%;
+    position: relative;
+    left: 40%; 
+}
+.ai-chat-box{
+    width: 60%;
+    position: relative;
+}
+.user-chat-area{
+    width: 90%;
+    padding: 20px;
+    background-color:var(--user-chat-area-bg);
+    color: var(--chat-area-text-color);
+    border-radius: 40px 0 40px 40px;
+    box-shadow:2px 2px 10px var(--prompt-area-input-bg);
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.chooseimg{
+    width: 30%;
+    border-radius: 13px;
+}
+.choose{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+#image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#image:focus,
+#image :focus-visible{
+    outline: none;
+}
+.close-icon{
+    width: 17px;
+    position: absolute;
+    top: -6px;
+    right: 12px;
+    display: none;
+}
+.ai-chat-area{
+    width: 90%;
+    padding: 20px;
+    background-color: var(--ai-chat-area-bg);
+    position: relative;
+    left: 10%;
+    color: var(--chat-area-text-color);
+    border-radius: 0 40px 40px 40px;
+    box-shadow:2px 2px 10px var(--prompt-area-input-bg);
+}
+#userImage{
+    position: absolute;
+    right: 0;
+    filter: drop-shadow(2px 2px 10px var(--prompt-area-input-bg));
+}
+#aiImage{
+    position: absolute;
+    left: 0;
+    filter: drop-shadow(2px 2px 10px var(--prompt-area-input-bg));
+}
+.prompt-area{
+    width: 100%;
+    height: 20%;
+    background-color: var(--chat-container-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.prompt-area input{
+    width: 50%;
+    background-color: var(--prompt-area-input-bg);
+    outline: 0;
+    height: 80px;
+    border: var(--prompt-area-input-border);
+    border-radius: 50px;
+    padding: 20px;
+    color: var(--prompt-area-input-color);
+    font-size: 20px;
+    box-shadow:2px 2px 10px var(--prompt-area-input-bg);
+}
+.prompt-area button{
+    width: 70px;
+    height: 70px;
+    border: var(--prompt-area-input-border);
+    border-radius: 50%;
+    background-color: var(--prompt-area-input-bg);
+    box-shadow:2px 2px 10px var(--prompt-area-input-bg);
+    cursor: pointer;
+}
+
+.prompt-area button:hover{
+    background-color: var(--button-hover-bg);
+}
+
+.load{
+    filter: drop-shadow(2px 2px 10px var(--prompt-area-input-bg));
+}
+
+@media (max-width: 600px) {
+    .user-chat-box{
+        width: 80%;
+        left: 20%;
+    }
+    #aiImage{
+        width: 10%;
+    }
+    .ai-chat-area{
+        width: 80%;
+    }
+}
