@@ -16,4 +16,4 @@ jobs:
       run: ls -la
 
     - name: Validate HTML (optional)
-      uses: Cyb3r-Jak3/html5validator-action@v0.1.0
+      uses: Cyb3r-Jak3/html5validator-action@main
