@@ -6,7 +6,7 @@ let image=document.querySelector('#image .preview-img');
 let closeIcon=document.querySelector('#image .close-icon');
 let imageInput=document.querySelector('#image input');
 
-const ApiUrl='https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBMVft29XVCg2QYN7AfoB-x77YRx3Hxl4Q';
+const ApiUrl='/.netlify/functions/getData';
 let user={
     message:null,
     file:{
