@@ -80,7 +80,6 @@ async function generateResponse(aiChatBox){
         text.innerHTML=data.message; 
 
     }catch(e){
-        console.log('Error:', e);
         text.innerHTML = 'Sorry, there was an error processing your request.';
     }
     finally{
@@ -114,7 +113,6 @@ imageInput.addEventListener('change',()=>{
     if(!file) return
     let reader=new FileReader(); 
     reader.onload=(e)=>{
-        // console.warn(e);
         let base64String=e.target.result.split(',')[1]; //get the base64 string from the data URL
         user.file={
             mime_type:file.type,
