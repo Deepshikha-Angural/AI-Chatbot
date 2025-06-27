@@ -62,34 +62,26 @@ function createChatBox(html,classes){
 
 async function generateResponse(aiChatBox){
     let text=aiChatBox.querySelector('.ai-chat-area');
+    let requestBody = { text: user.message };
+    if (user.file.data) {
+        requestBody.doc = user.file;
+    }
+    
     let requestOption={
-        method:'POST',
-        Headers:{'Content-Type': 'application/json'},
-        body:JSON.stringify(
-            {
-                "contents": [
-                  {
-                    "parts": [
-                      {
-                        "text": user.message
-                      },
-                      (user.file.data ? [{"inline_data": user.file}] : [])
-                    ]
-                  }
-                ]
-              }
-        )
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestBody)
     }
 
     try{
         let response=await fetch(ApiUrl,requestOption);
         let data=await response.json();
-        let apiResponse=data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g,"$1").trim();
-        //console.log(apiResponse);
-        text.innerHTML=apiResponse; //display the response from the API
+        // console.warn(response,data);
+        text.innerHTML=data.message; 
 
     }catch(e){
-        console.log(e);
+        console.log('Error:', e);
+        text.innerHTML = 'Sorry, there was an error processing your request.';
     }
     finally{
         chatContainer.scrollTo({top: chatContainer.scrollHeight, behavior: 'smooth'}); //automatocally scroll to the bottom of the chat container
