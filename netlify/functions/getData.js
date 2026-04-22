@@ -16,7 +16,7 @@ exports.handler = async (event) => {
                       {
                         "text": text
                       },
-                      (body.doc.data ? [{"inline_data": body.doc}] : [])
+                      (body.doc && body.doc.data ? [{"inline_data": body.doc}] : [])
                     ]
                   }
                 ]
